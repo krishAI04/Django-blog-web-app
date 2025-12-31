@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Edit Post{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/edit_post.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="edit-post-container">
+    <h2>Edit Blog Post</h2>
+
+    <form method="post">
+        {% csrf_token %}
+
+        <div class="input-group">
+            <label>Title</label>
+            <input 
+                type="text" 
+                name="title" 
+                value="{{ blog.title }}" 
+                required
+            >
+        </div>
+
+        <div class="input-group">
+            <label>Content</label>
+            <textarea 
+                name="content" 
+                rows="8" 
+                required>{{ blog.content }}</textarea>
+        </div>
+
+        <div class="action-buttons">
+            <button type="submit" class="btn save">Update</button>
+            <a href="{% url 'my_posts' %}" class="btn cancel">Cancel</a>
+        </div>
+    </form>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,81 @@
+/* ================= BLOG DETAIL PAGE ================= */
+.blog-detail-container {
+    width: 75%;
+    margin: 40px auto;
+    background: #111;
+    padding: 40px;
+    border-radius: 14px;
+    box-shadow: 0 0 30px rgba(255, 204, 0, 0.25);
+}
+
+/* Title */
+.blog-title {
+    font-size: 32px;
+    color: #ffcc00;
+    margin-bottom: 10px;
+}
+
+/* Meta Info */
+.blog-meta {
+    color: #bbb;
+    font-size: 14px;
+    margin-bottom: 25px;
+}
+
+/* Content */
+.blog-content {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #e0e0e0;
+    margin-bottom: 30px;
+}
+
+/* Buttons */
+.blog-actions {
+    display: flex;
+    gap: 15px;
+}
+
+.btn {
+    padding: 10px 18px;
+    background: #ffcc00;
+    color: #000;
+    font-weight: bold;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #e6b800;
+}
+
+.btn.edit {
+    background: #3a86ff;
+    color: #fff;
+}
+
+.btn.edit:hover {
+    background: #2f6ed6;
+}
+
+.btn.delete {
+    background: #e63946;
+    color: #fff;
+}
+
+.btn.delete:hover {
+    background: #c92c38;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .blog-detail-container {
+        width: 90%;
+        padding: 25px;
+    }
+
+    .blog-title {
+        font-size: 26px;
+    }
+}

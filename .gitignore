@@ -1,0 +1,55 @@
+# =========================
+# Python
+# =========================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+
+# =========================
+# Virtual Environment
+# =========================
+venv/
+env/
+.venv/
+ENV/
+
+# =========================
+# Django
+# =========================
+*.log
+db.sqlite3
+media/
+staticfiles/
+.env
+
+# Migrations (optional – keep if you want version control)
+# */migrations/*.py
+# !*/migrations/__init__.py
+
+# =========================
+# VS Code
+# =========================
+.vscode/
+
+# =========================
+# OS Files
+# =========================
+.DS_Store
+Thumbs.db
+
+# =========================
+# PyCharm / IDEs
+# =========================
+.idea/
+*.iml
+
+
+
+# =========================
+# Python build
+# =========================
+build/
+dist/
+*.egg-info/

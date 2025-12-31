@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ blog.title }}{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/blog_detail.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<!-- ================= BLOG DETAIL ================= -->
+<div class="blog-detail-container">
+
+    <h1 class="blog-title">{{ blog.title }}</h1>
+
+    <p class="blog-meta">
+        By <span>{{ blog.author }}</span> · 
+        {{ blog.created_at|date:"F d, Y" }}
+    </p>
+
+    <div class="blog-content">
+        {{ blog.content|linebreaks }}
+    </div>
+
+    <div class="blog-actions">
+        <a href="{% url 'my_posts' %}" class="btn">← Back to My posts</a>
+
+        {% if request.user == blog.author %}
+            <a href="{% url 'edit_post' blog.id %}" class="btn edit">Edit</a>
+            <a href="{% url 'delete_post' blog.id %}" class="btn delete">Delete</a>
+        {% endif %}
+    </div>
+
+</div>
+
+{% endblock %}

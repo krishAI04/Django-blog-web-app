@@ -1,0 +1,66 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}My Blog{% endblock %}</title>
+
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    {% block extra_css %}{% endblock %}
+</head>
+
+
+{% if messages %}
+<div id="toast">
+    {% for message in messages %}
+        {{ message }}
+    {% endfor %}
+</div>
+{% endif %}
+<script>
+    const toast = document.getElementById("toast");
+
+    if (toast) {
+        // Hide after 3 seconds
+        setTimeout(() => {
+            toast.classList.add("hide");
+        }, 3000);
+
+        // Remove completely after animation
+        setTimeout(() => {
+            toast.remove();
+        }, 3500);
+    }
+</script>
+
+<body >
+
+    <!-- NAVBAR -->
+    {% block navbar %}
+    <nav class="navbar">
+    <div class="logo">
+        <a href="{% url 'home' %}">MyBlog</a>
+    </div>
+
+    <div class="nav-links">
+        <a href="{% url 'home' %}">Home</a>
+        <a href="{% url 'my_posts' %}">My Posts</a>
+        <a href="{% url 'new_post' %}">New Post</a>
+        <a href="{% url 'signout' %}">Sign Out</a>
+    </div>
+
+    <form method="get" class="search-box"  action="{% if request.path == '/my_posts/' %}{% url 'search_my_post' %}{% else %}{% url 'search_home' %}{% endif %}">
+        <input type="text" name="q" placeholder="Search blogs...">
+        <button type="submit">Search</button>
+    </form>
+</nav>
+    {% endblock %}
+
+    <!-- PAGE CONTENT -->
+    <main class="page-wrapper {% block body_class %}{% endblock %}">
+        {% block content %}{% endblock %}
+    </main>
+
+
+</body>
+</html>

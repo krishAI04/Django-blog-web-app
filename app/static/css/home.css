@@ -1,0 +1,76 @@
+/* ================= NAVBAR ================= */
+
+/* ================= BLOG LIST ================= */
+.blog-container {
+    width: 85%;
+    margin: 40px auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
+}
+.blog-card {
+    background: linear-gradient(145deg, #111, #0c0c0c);
+    padding: 22px;
+    border-radius: 14px;
+    box-shadow: 0 10px 25px rgba(255, 204, 0, 0.15);
+    transition: 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.blog-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 14px;
+    background: linear-gradient(120deg, transparent, rgba(255, 204, 0, 0.15), transparent);
+    opacity: 0;
+    transition: 0.3s;
+    pointer-events: none;
+}
+
+.blog-card:hover::before {
+    opacity: 1;
+    
+}
+
+.blog-card:hover {
+    transform: translateY(-6px);
+}
+.blog-card h3 {
+    color: #ffcc00;
+    margin-bottom: 10px;
+}
+
+.blog-meta {
+    font-size: 13px;
+    color: #bbb;
+    margin-bottom: 10px;
+}
+
+.blog-content {
+    font-size: 14px;
+    color: #ddd;
+    margin-bottom: 15px;
+}
+
+.read-more {
+    color: #ffcc00;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.read-more:hover {
+    text-decoration: underline;
+}
+
+/* ================= EMPTY STATE ================= */
+.no-posts {
+    color: #ccc;
+    font-size: 18px;
+    text-align: center;
+    grid-column: 1 / -1;
+}
+.blog-container {
+    margin-top: 40px;
+}
